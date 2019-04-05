@@ -956,9 +956,6 @@ func (p *Parser) parseCreateSeries(tok Token, pos Pos, lit string, instruction *
 		}
 	}
 
-	if err != nil {
-		return nil, err
-	}
 	return instruction, nil
 }
 
@@ -1137,10 +1134,6 @@ func (p *Parser) parseSelect(tok Token, pos Pos, lit string, instruction *Instru
 		selectStatement.metric = fields[0].lit
 	} else if fields[0].tokenType == ASTERISK {
 		selectStatement.selectAll = true
-	}
-
-	if err != nil {
-		return nil, err
 	}
 
 	instruction.selectStatement = *selectStatement
